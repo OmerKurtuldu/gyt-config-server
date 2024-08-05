@@ -3,7 +3,7 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://localhost:9000/eureka
+      defaultZone: http://localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${instanceId:${random.value}}
     preferIpAddress: true
@@ -11,9 +11,9 @@ server:
   port: 9002
 spring:
   application:
-    name: questionservice
+    name: question-service
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5434/questiondev
+    url: jdbc:postgresql://host.docker.internal:5434/question-dev-db
     username: postgres
     password: 12345
   jpa:
