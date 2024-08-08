@@ -28,5 +28,3 @@ spring:
             trusted:
               packages: '*'
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-    topic:
-      name: question_topics
