@@ -1,0 +1,36 @@
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${instanceId:${random.value}}
+    preferIpAddress: true
+server:
+  port: 9003
+spring:
+  application:
+    name: exam-service
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5435/exam-dev-db
+    username: postgres
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      javax:
+        persistence:
+          validation:
+            mode: none
+    show-sql: true
+grpc:
+  server:
+    port: 7677
+  client:
+    question-service:
+      address: static://localhost:7676
+      negotiation-type: plaintext
