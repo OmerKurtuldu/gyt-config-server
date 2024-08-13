@@ -1,8 +1,8 @@
 spring:
   application:
+      name: discovery-server
 server:
   port: 8761
-    name: discoveryserver
 management:
   endpoints:
     web:
